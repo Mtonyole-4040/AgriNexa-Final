@@ -3,70 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AgriNEXA AI Loading</title>
-
+<title>AgriNEXA Loading</title>
 <link rel="stylesheet" href="style.css">
-
 </head>
 
-<body>
+<body class="farm-bg">
 
-<div class="main-container">
+<div class="overlay"></div>
 
-<div class="glass-card">
+<div class="loading-container">
 
-<div class="logo">
-AgriNEXA AI
-</div>
+<div class="loader"></div>
 
-<div class="loading-circle"></div>
+<h1>AgriNEXA AI</h1>
 
-<p id="loadingText" class="loading-text">
-
-Analyzing climate conditions...
-
+<p>
+Analyzing climate...<br>
+Scanning crop intelligence...<br>
+Generating smart predictions...
 </p>
-
-</div>
 
 </div>
 
 <script>
 
-const messages = [
-
-"Analyzing climate conditions...",
-
-"Checking market intelligence...",
-
-"Predicting crop profitability...",
-
-"Evaluating farmer wellbeing...",
-
-"Generating AI recommendations..."
-
-];
-
-let index = 0;
-
-setInterval(()=>{
-
-index++;
-
-if(index < messages.length){
-
-document.getElementById("loadingText").innerText =
-messages[index];
-
-}
-
-},1500);
-
-setTimeout(()=>{
-
+setTimeout(() => {
 window.location.href = "dashboard.html";
-
-},7000);
+}, 4000);
 
 </script>
 

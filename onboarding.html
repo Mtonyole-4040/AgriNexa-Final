@@ -3,177 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AgriNEXA AI Assistant</title>
-
+<title>AgriNEXA Onboarding</title>
 <link rel="stylesheet" href="style.css">
-
 </head>
 
-<body>
+<body class="farm-bg">
 
-<div class="main-container">
+<div class="overlay"></div>
 
-<div class="glass-card">
-
-<div class="logo">
-AgriNEXA AI
-</div>
-
-<!-- INTRO -->
-
-<div id="introSection">
+<div class="page-container">
 
 <div class="question-box">
 
-👋 Hello Farmer,<br><br>
+<h2>Hello Farmer 👋 I am AgriNEXA AI</h2>
 
-I am <span style="color:#b7ff00;">AgriNEXA AI</span> — your intelligent farming assistant designed to help you:
+<p class="subtitle">
+Let me understand your farm and generate smart agricultural intelligence.
+</p>
 
-<br><br>
+<div class="question-grid">
 
-🌱 Improve crop performance<br><br>
+<div class="question-card">
+<label>🌍 Which region is your farm located?</label>
+<select>
+<option>Arusha</option>
+<option>Dodoma</option>
+<option>Mbeya</option>
+<option>Morogoro</option>
+</select>
+</div>
 
-🌦️ Reduce climate risks<br><br>
+<div class="question-card">
+<label>🌱 What crop are you farming?</label>
+<select>
+<option>Coffee</option>
+<option>Maize</option>
+<option>Rice</option>
+<option>Beans</option>
+</select>
+</div>
 
-📈 Predict profitable market opportunities<br><br>
+<div class="question-card">
+<label>📏 Farm Size (Acres)</label>
+<input type="number" placeholder="Example: 4">
+</div>
 
-🧠 Support farmer wellbeing<br><br>
+<div class="question-card">
+<label>💰 Estimated Farming Budget</label>
+<input type="number" placeholder="Example: 1000000">
+</div>
 
-🛡️ Access smart farm protection insights
+<div class="question-card">
+<label>🌦 Current Weather Condition</label>
+<select>
+<option>Sunny</option>
+<option>Rainy</option>
+<option>Dry</option>
+<option>Storm Risk</option>
+</select>
+</div>
 
-<br><br>
+<div class="question-card">
+<label>🛡 Do you have farm insurance?</label>
+<select>
+<option>Yes</option>
+<option>No</option>
+<option>Planning to get one</option>
+</select>
+</div>
 
-Let me quickly understand your farm so I can generate personalized AI recommendations for this season.
+<div class="question-card">
+<label>🧠 How are you emotionally feeling this season?</label>
+<select>
+<option>Confident</option>
+<option>Worried</option>
+<option>Stressed</option>
+<option>Hopeful</option>
+</select>
+</div>
 
 </div>
 
-<button onclick="startQuestions()">
-
-Start AI Analysis
-
+<button class="generate-btn" onclick="goToLoading()">
+Generate AgriNEXA AI Insights
 </button>
 
 </div>
 
-<!-- QUESTIONS -->
-
-<div id="questionSection" style="display:none;">
-
-<div class="question-box" id="questionBox"></div>
-
-<input type="text" id="answerInput" placeholder="Type your answer">
-
-<button onclick="nextQuestion()">
-Continue
-</button>
-
 </div>
 
-</div>
-
-</div>
-
-<script>
-
-const questions = [
-
-"👩‍🌾 First, what is your full name?",
-
-"🌍 Which region are you farming from?",
-
-"🌱 What crop are you focusing on this season?",
-
-"📏 Approximately how large is your farm in acres or hectares?",
-
-"💰 What is your estimated farming budget this season?",
-
-"🌦️ Have you experienced difficult weather conditions recently?",
-
-"🐛 Have pests or crop diseases affected your farm before?",
-
-"📈 Are you farming mainly for local market or export opportunities?",
-
-"🧠 How are you emotionally feeling about this farming season?",
-
-"🛡️ Would you like AI-powered farm protection and insurance recommendations?",
-
-"🤖 Finally, what is your biggest farming challenge right now?"
-
-];
-
-let currentQuestion = 0;
-
-function startQuestions(){
-
-document.getElementById("introSection").style.display = "none";
-
-document.getElementById("questionSection").style.display = "block";
-
-document.getElementById("questionBox").innerText =
-questions[currentQuestion];
-
-}
-
-function nextQuestion(){
-
-const input =
-document.getElementById("answerInput");
-
-const questionBox =
-document.getElementById("questionBox");
-
-if(input.value.trim() === ""){
-
-alert("Please answer the question first");
-
-return;
-
-}
-
-/* SAVE DATA */
-
-if(currentQuestion === 0){
-localStorage.setItem("name", input.value);
-}
-
-if(currentQuestion === 1){
-localStorage.setItem("region", input.value);
-}
-
-if(currentQuestion === 2){
-localStorage.setItem("crop", input.value);
-}
-
-if(currentQuestion === 3){
-localStorage.setItem("farm", input.value);
-}
-
-if(currentQuestion === 4){
-localStorage.setItem("budget", input.value);
-}
-
-if(currentQuestion === 8){
-localStorage.setItem("emotion", input.value);
-}
-
-currentQuestion++;
-
-input.value = "";
-
-if(currentQuestion < questions.length){
-
-questionBox.innerText =
-questions[currentQuestion];
-
-}else{
-
-window.location.href = "loading.html";
-
-}
-
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>

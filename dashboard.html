@@ -3,603 +3,109 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>AgriNEXA Dashboard</title>
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-
-    font-family:Arial, sans-serif;
-
-    background:
-    linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)),
-    url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=2070&auto=format&fit=crop');
-
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
-
-    color:white;
-}
-
-.dashboard{
-
-    padding:35px;
-}
-
-.topbar{
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    margin-bottom:35px;
-}
-
-.logo{
-
-    font-size:45px;
-    font-weight:bold;
-    color:#c6ff00;
-
-    text-shadow:0 0 20px #c6ff00;
-}
-
-.welcome{
-
-    font-size:18px;
-    color:#f1f1f1;
-}
-
-.grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-
-    gap:25px;
-}
-
-.card{
-
-    background:rgba(15,15,15,0.88);
-
-    border-radius:28px;
-
-    padding:28px;
-
-    backdrop-filter:blur(10px);
-
-    box-shadow:0 0 25px rgba(198,255,0,0.18);
-
-    transition:0.3s;
-}
-
-.card:hover{
-
-    transform:translateY(-5px);
-
-    box-shadow:0 0 35px rgba(198,255,0,0.3);
-}
-
-.card h2{
-
-    color:#c6ff00;
-
-    margin-bottom:18px;
-
-    font-size:30px;
-}
-
-.card p{
-
-    line-height:1.8;
-
-    color:#f5f5f5;
-}
-
-.big-number{
-
-    font-size:65px;
-
-    font-weight:bold;
-
-    margin:18px 0;
-
-    color:#c6ff00;
-}
-
-.progress{
-
-    width:100%;
-
-    height:12px;
-
-    background:#444;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    margin-top:15px;
-}
-
-.progress-bar{
-
-    width:82%;
-
-    height:100%;
-
-    background:#c6ff00;
-}
-
-input,
-select{
-
-    width:100%;
-
-    padding:16px;
-
-    border:none;
-
-    border-radius:15px;
-
-    margin-top:15px;
-
-    font-size:16px;
-}
-
-button{
-
-    width:100%;
-
-    padding:16px;
-
-    border:none;
-
-    border-radius:15px;
-
-    margin-top:18px;
-
-    background:#c6ff00;
-
-    color:black;
-
-    font-size:18px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    transition:0.3s;
-}
-
-button:hover{
-
-    transform:scale(1.03);
-
-    box-shadow:0 0 20px #c6ff00;
-}
-
-.image-preview{
-
-    width:100%;
-
-    border-radius:22px;
-
-    margin:15px 0;
-}
-
-.success-btn{
-
-    background:green !important;
-
-    color:white !important;
-}
-
-@media(max-width:768px){
-
-    .topbar{
-
-        flex-direction:column;
-
-        align-items:flex-start;
-
-        gap:10px;
-    }
-
-    .logo{
-
-        font-size:35px;
-    }
-
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="farm-bg">
 
-<div class="dashboard">
+<div class="overlay"></div>
 
-<!-- TOP -->
+<div class="dashboard-container">
 
-<div class="topbar">
+<div class="top-bar">
 
-<div class="logo">
-🌱 AgriNEXA AI
-</div>
+<h1>AgriNEXA Intelligence Center</h1>
 
 <div class="welcome">
-
-Welcome back,
-<span id="farmerName"></span> 👋
-
+Welcome back, Sarah 👋
 </div>
 
 </div>
 
-<!-- GRID -->
-
-<div class="grid">
-
-<!-- PROFILE -->
+<div class="dashboard-grid">
 
 <div class="card">
-
-<h2>👨‍🌾 Farmer Profile</h2>
-
-<p>Name:
-<span id="profileName"></span>
-</p>
-
-<br>
-
-<p>Region:
-<span id="profileRegion"></span>
-</p>
-
-<br>
-
-<p>Crop:
-<span id="profileCrop"></span>
-</p>
-
-<br>
-
-<p>Farm Size:
-<span id="profileFarm"></span>
-</p>
-
-<br>
-
-<p>Budget:
-<span id="profileBudget"></span>
-</p>
-
+<h3>🧑‍🌾 Farmer Profile</h3>
+<p>Name: Sarah</p>
+<p>Region: Arusha</p>
+<p>Crop: Coffee</p>
+<p>Farm Size: 4 Acres</p>
+<p>Budget: 1,000,000 TZS</p>
 </div>
-
-<!-- FARM HEALTH -->
 
 <div class="card">
-
-<h2>🌱 Farm Health</h2>
-
-<div class="big-number">
-92%
+<h3>🌱 Farm Health</h3>
+<div class="big-number">92%</div>
+<p>AI detects strong crop performance and healthy environmental conditions.</p>
 </div>
-
-<p>
-AI detects strong crop performance and healthy environmental conditions.
-</p>
-
-</div>
-
-<!-- EXPECTED PROFIT -->
 
 <div class="card">
-
-<h2>💰 Expected Profit</h2>
-
-<div class="big-number" id="profitPrediction">
-480K
+<h3>💰 Expected Profit</h3>
+<div class="big-number">480K</div>
+<p>Projected seasonal profit based on AI crop intelligence and market demand.</p>
 </div>
-
-<p>
-Projected seasonal profit based on AI crop intelligence and market demand.
-</p>
-
-</div>
-
-<!-- WEATHER -->
 
 <div class="card">
-
-<h2>🌦️ Weather Risk</h2>
-
-<div class="big-number">
-LOW
+<h3>🌧 Weather Risk</h3>
+<div class="big-number">LOW</div>
+<p>No major climate disruption expected this season.</p>
 </div>
-
-<p>
-No major climate disruption expected this season.
-</p>
-
-</div>
-
-<!-- WELLBEING -->
 
 <div class="card">
-
-<h2>🧠 Farmer Wellbeing</h2>
-
-<p>
-
-Current emotional state:
-<span id="emotionText"></span>
-
-</p>
+<h3>🧠 Farmer Wellbeing</h3>
+<p>Current emotional state: worried</p>
 
 <div class="progress">
-
-<div class="progress-bar"></div>
-
+<span></span>
 </div>
 
 </div>
-
-<!-- AI ASSISTANT -->
 
 <div class="card">
-
-<h2>🤖 AI Farming Assistant</h2>
-
-<p id="assistantText">
-
-Loading AI recommendation...
-
+<h3>🤖 AI Farming Assistant</h3>
+<p>
+Coffee demand in Arusha is projected to rise next month.
 </p>
-
 </div>
 
-<!-- SCANNER -->
-
 <div class="card">
-
-<h2>📷 Crop Disease Scanner</h2>
-
-<img
-src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200&auto=format&fit=crop"
-class="image-preview">
+<h3>📷 Crop Disease Scanner</h3>
 
 <input type="file">
 
-<button>
-
+<button class="small-btn">
 Scan Plant
-
 </button>
 
 </div>
 
-<!-- MARKET -->
-
 <div class="card">
-
-<h2>🌍 Market Intelligence</h2>
+<h3>🌍 Market Intelligence</h3>
 
 <p>📍 Best Market: Arusha City</p>
-
-<br>
-
 <p>💵 Crop Price: 12,000 TZS/kg</p>
-
-<br>
-
 <p>📈 Demand Level: HIGH</p>
 
-<br>
-
-<p>📊 Prices expected to rise next week</p>
-
 </div>
-
-<!-- FORECAST -->
 
 <div class="card">
 
-<h2>📊 Smart Profit Forecast</h2>
+<h3>📊 Smart Profit Forecast</h3>
 
 <input type="number" placeholder="Seeds Cost">
-
 <input type="number" placeholder="Fertilizer Cost">
-
 <input type="number" placeholder="Labour Cost">
 
-<button>
-
+<button class="small-btn">
 Generate AI Forecast
-
 </button>
 
 </div>
 
-<!-- INSURANCE -->
-
-<div class="card">
-
-<h2>🛡️ AgriNEXA Farm Shield</h2>
-
-<p>
-
-Protect your farm against climate damage, pest outbreaks and crop failure.
-
-</p>
-
-<br>
-
-<p>• ☑️ Climate Damage</p>
-
-<br>
-
-<p>• ☑️ Pest Protection</p>
-
-<br>
-
-<p>• ☑️ Disease Coverage</p>
-
-<br>
-
-<p>• ☑️ Extreme Rainfall</p>
-
-<br>
-
-<h1 style="color:#c6ff00;">
-18,000 TZS
-</h1>
-
-<button id="shieldBtn" onclick="activateShield()">
-
-Activate Farm Shield
-
-</button>
-
-</div>
-
-<!-- WELLNESS -->
-
-<div class="card">
-
-<h2>💗 Emotional Support AI</h2>
-
-<select>
-
-<option>😊 Motivated</option>
-
-<option>😟 Stressed</option>
-
-<option>😔 Tired</option>
-
-<option>😐 Neutral</option>
-
-</select>
-
-<button>
-
-Check Mental Support
-
-</button>
-
-<p style="margin-top:15px;">
-
-AgriNEXA wellness support ready.
-
-</p>
-
 </div>
 
 </div>
-
-</div>
-
-<script>
-
-/* GET USER DATA */
-
-const name =
-localStorage.getItem("name");
-
-const region =
-localStorage.getItem("region");
-
-const crop =
-localStorage.getItem("crop");
-
-const farm =
-localStorage.getItem("farm");
-
-const budget =
-localStorage.getItem("budget");
-
-const emotion =
-localStorage.getItem("emotion");
-
-/* DISPLAY */
-
-document.getElementById("farmerName").innerText =
-name;
-
-document.getElementById("profileName").innerText =
-name;
-
-document.getElementById("profileRegion").innerText =
-region;
-
-document.getElementById("profileCrop").innerText =
-crop;
-
-document.getElementById("profileFarm").innerText =
-farm;
-
-document.getElementById("profileBudget").innerText =
-budget;
-
-document.getElementById("emotionText").innerText =
-emotion;
-
-/* AI RECOMMENDATION */
-
-document.getElementById("assistantText").innerText =
-
-crop + " demand in " + region +
-
-" is projected to increase due to stable rainfall patterns and rising market activity this season.";
-
-/* PROFIT */
-
-if(crop.toLowerCase().includes("coffee")){
-
-document.getElementById("profitPrediction").innerText =
-"480K";
-
-}
-
-else if(crop.toLowerCase().includes("rice")){
-
-document.getElementById("profitPrediction").innerText =
-"420K";
-
-}
-
-else if(crop.toLowerCase().includes("maize")){
-
-document.getElementById("profitPrediction").innerText =
-"310K";
-
-}
-
-/* INSURANCE */
-
-function activateShield(){
-
-const btn =
-document.getElementById("shieldBtn");
-
-btn.innerText =
-"Farm Shield Activated ✓";
-
-btn.classList.add("success-btn");
-
-}
-
-</script>
 
 </body>
 </html>
