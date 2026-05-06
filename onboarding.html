@@ -1,12 +1,8 @@
-<!-- onboarding.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>AgriNEXA AI Assistant</title>
 
 <link rel="stylesheet" href="style.css">
@@ -19,31 +15,59 @@
 
 <div class="glass-card">
 
-<h1 class="title">
-AgriNEXA AI Assistant
-</h1>
+<div class="logo">
+AgriNEXA AI
+</div>
 
-<div class="question-box" id="questionBox">
+<!-- INTRO -->
 
-👋 Hello farmer, I am AgriNEXA AI — your intelligent farming assistant built to help you increase profit, reduce farming risks, improve wellbeing and grow smarter this season.
+<div id="introSection">
+
+<div class="question-box">
+
+👋 Hello Farmer,<br><br>
+
+I am <span style="color:#b7ff00;">AgriNEXA AI</span> — your intelligent farming assistant designed to help you:
+
+<br><br>
+
+🌱 Improve crop performance<br><br>
+
+🌦️ Reduce climate risks<br><br>
+
+📈 Predict profitable market opportunities<br><br>
+
+🧠 Support farmer wellbeing<br><br>
+
+🛡️ Access smart farm protection insights
+
+<br><br>
+
+Let me quickly understand your farm so I can generate personalized AI recommendations for this season.
 
 </div>
 
-<div class="progress">
-<div class="progress-bar" id="progressBar"></div>
+<button onclick="startQuestions()">
+
+Start AI Analysis
+
+</button>
+
 </div>
 
-<div class="input-box">
-<input type="text" id="answer" placeholder="Type your answer">
-</div>
+<!-- QUESTIONS -->
 
-<button class="btn" onclick="nextQuestion()">
+<div id="questionSection" style="display:none;">
+
+<div class="question-box" id="questionBox"></div>
+
+<input type="text" id="answerInput" placeholder="Type your answer">
+
+<button onclick="nextQuestion()">
 Continue
 </button>
 
-<p class="small-text" id="stepText">
-Introduction
-</p>
+</div>
 
 </div>
 
@@ -53,38 +77,52 @@ Introduction
 
 const questions = [
 
-"👤 First, what is your full name?",
+"👩‍🌾 First, what is your full name?",
 
 "🌍 Which region are you farming from?",
 
-"🌱 What crop are you planning to grow this season?",
+"🌱 What crop are you focusing on this season?",
 
-"📏 Approximately how large is your farm? (example: 3 acres)",
+"📏 Approximately how large is your farm in acres or hectares?",
 
 "💰 What is your estimated farming budget this season?",
 
-"☁️ How do you feel about this farming season so far?",
+"🌦️ Have you experienced difficult weather conditions recently?",
 
-"🌧️ Have you ever experienced major losses due to weather, pests or crop disease?",
+"🐛 Have pests or crop diseases affected your farm before?",
 
-"🛡️ Would you be interested in affordable AI-powered farm protection insurance for your crops?",
+"📈 Are you farming mainly for local market or export opportunities?",
 
-"📈 What is your main goal this season? More profit, export market, food security or higher yield?",
+"🧠 How are you emotionally feeling about this farming season?",
 
-"🧠 Are you currently experiencing stress or pressure related to farming?",
+"🛡️ Would you like AI-powered farm protection and insurance recommendations?",
 
-"🚜 What farming challenge worries you most right now?"
+"🤖 Finally, what is your biggest farming challenge right now?"
 
 ];
 
-let current = -1;
+let currentQuestion = 0;
+
+function startQuestions(){
+
+document.getElementById("introSection").style.display = "none";
+
+document.getElementById("questionSection").style.display = "block";
+
+document.getElementById("questionBox").innerText =
+questions[currentQuestion];
+
+}
 
 function nextQuestion(){
 
 const input =
-document.getElementById("answer").value;
+document.getElementById("answerInput");
 
-if(current >= 0 && input.trim() === ""){
+const questionBox =
+document.getElementById("questionBox");
+
+if(input.value.trim() === ""){
 
 alert("Please answer the question first");
 
@@ -92,58 +130,40 @@ return;
 
 }
 
-/* SAVE USER DATA */
+/* SAVE DATA */
 
-if(current === 0){
-
-localStorage.setItem("farmerName", input);
-
+if(currentQuestion === 0){
+localStorage.setItem("name", input.value);
 }
 
-if(current === 1){
-
-localStorage.setItem("region", input);
-
+if(currentQuestion === 1){
+localStorage.setItem("region", input.value);
 }
 
-if(current === 2){
-
-localStorage.setItem("crop", input);
-
+if(currentQuestion === 2){
+localStorage.setItem("crop", input.value);
 }
 
-if(current === 3){
-
-localStorage.setItem("farmSize", input);
-
+if(currentQuestion === 3){
+localStorage.setItem("farm", input.value);
 }
 
-if(current === 4){
-
-localStorage.setItem("budget", input);
-
+if(currentQuestion === 4){
+localStorage.setItem("budget", input.value);
 }
 
-if(current === 5){
-
-localStorage.setItem("feeling", input);
-
+if(currentQuestion === 8){
+localStorage.setItem("emotion", input.value);
 }
 
-current++;
+currentQuestion++;
 
-if(current < questions.length){
+input.value = "";
 
-document.getElementById("questionBox").innerHTML =
-questions[current];
+if(currentQuestion < questions.length){
 
-document.getElementById("answer").value = "";
-
-document.getElementById("stepText").innerHTML =
-"Question " + (current + 1) + " of " + questions.length;
-
-document.getElementById("progressBar").style.width =
-((current + 1) / questions.length) * 100 + "%";
+questionBox.innerText =
+questions[currentQuestion];
 
 }else{
 

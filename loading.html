@@ -1,13 +1,9 @@
-<!-- loading.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>AgriNEXA Loading</title>
+<title>AgriNEXA AI Loading</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -19,25 +15,17 @@
 
 <div class="glass-card">
 
-<h1 class="title">
-
+<div class="logo">
 AgriNEXA AI
-
-</h1>
+</div>
 
 <div class="loading-circle"></div>
 
-<div class="loading-text">
+<p id="loadingText" class="loading-text">
 
-Analyzing farm intelligence...<br>
+Analyzing climate conditions...
 
-Checking weather patterns...<br>
-
-Scanning market opportunities...<br>
-
-Preparing smart recommendations...
-
-</div>
+</p>
 
 </div>
 
@@ -45,11 +33,40 @@ Preparing smart recommendations...
 
 <script>
 
-setTimeout(() => {
+const messages = [
+
+"Analyzing climate conditions...",
+
+"Checking market intelligence...",
+
+"Predicting crop profitability...",
+
+"Evaluating farmer wellbeing...",
+
+"Generating AI recommendations..."
+
+];
+
+let index = 0;
+
+setInterval(()=>{
+
+index++;
+
+if(index < messages.length){
+
+document.getElementById("loadingText").innerText =
+messages[index];
+
+}
+
+},1500);
+
+setTimeout(()=>{
 
 window.location.href = "dashboard.html";
 
-}, 5000);
+},7000);
 
 </script>
 
