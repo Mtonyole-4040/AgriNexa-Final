@@ -3,43 +3,168 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AgriNEXA Login</title>
 
-<link rel="stylesheet" href="style.css">
+<title>AgriNEXA AI</title>
 
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=2070&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.login-container{
+
+    width:430px;
+
+    background:rgba(20,20,20,0.92);
+
+    padding:45px;
+
+    border-radius:28px;
+
+    text-align:center;
+
+    color:white;
+
+    box-shadow:0 0 40px rgba(187,255,0,0.35);
+
+    backdrop-filter:blur(8px);
+}
+
+.logo{
+    font-size:75px;
+    margin-bottom:10px;
+}
+
+h1{
+    color:#c6ff00;
+    font-size:60px;
+    margin-bottom:18px;
+    text-shadow:0 0 20px #c6ff00;
+}
+
+.subtitle{
+    font-size:16px;
+    line-height:1.7;
+    color:#f1f1f1;
+    margin-bottom:35px;
+}
+
+input{
+
+    width:100%;
+
+    padding:18px;
+
+    margin-bottom:18px;
+
+    border:none;
+
+    border-radius:15px;
+
+    font-size:16px;
+
+    outline:none;
+}
+
+button{
+
+    width:100%;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#c6ff00;
+
+    color:black;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+button:hover{
+
+    transform:scale(1.03);
+
+    background:#d8ff4d;
+
+    box-shadow:0 0 25px #c6ff00;
+}
+
+.footer-text{
+    margin-top:20px;
+    color:#cccccc;
+    font-size:14px;
+}
+
+</style>
 </head>
 
 <body>
 
-<div class="main-container">
+<div class="login-container">
 
-<div class="glass-card">
+<div class="logo">🌱</div>
 
-<div class="logo">
-🌱 AgriNEXA
-</div>
+<h1>AgriNEXA</h1>
 
 <p class="subtitle">
-
 AI Copilot for Smart Farming.<br>
-Climate intelligence, crop health,<br>
-market prediction and farmer wellbeing.
-
+From crop planning to market profit and farmer wellbeing.
 </p>
 
 <input type="email" placeholder="Enter Email">
 
 <input type="password" placeholder="Password">
 
-<button onclick="window.location.href='onboarding.html'">
-
+<button onclick="launchDashboard()">
 Launch Smart Farm
-
 </button>
 
-</div>
+<p class="footer-text">
+Powered by AI • Climate Intelligence • Farmer Protection
+</p>
 
 </div>
+
+<script>
+
+function launchDashboard(){
+
+    window.location.href = "dashboard.html";
+
+}
+
+</script>
 
 </body>
 </html>
