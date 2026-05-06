@@ -1,54 +1,75 @@
+<!-- dashboard.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>AgriNEXA Dashboard</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
-<body class="dashboard-body">
+<body>
 
-<div class="dashboard-overlay">
+<div class="dashboard">
 
-<div class="dashboard-container">
-
-<h1 class="main-title">
+<h1 class="dashboard-title">
 AgriNEXA Intelligence Center
 </h1>
 
+<p class="welcome" id="welcomeText">
+Loading...
+</p>
+
 <div class="grid">
+
+<!-- PROFILE -->
 
 <div class="card">
 
-<h2>👨‍🌾 Farmer Profile</h2>
+<h2>🧑‍🌾 Farmer Profile</h2>
 
-<p>Name: Sarah</p>
-<p>Region: Arusha</p>
-<p>Selected Crop: Coffee</p>
-<p>Farm Size: 3 Acres</p>
-<p>Budget: 1,000,000 TZS</p>
+<p id="farmerName"></p>
+
+<p id="region"></p>
+
+<p id="crop"></p>
+
+<p id="farmSize"></p>
+
+<p id="budget"></p>
 
 </div>
+
+<!-- HEALTH -->
 
 <div class="card">
 
 <h2>🌱 Farm Health</h2>
 
-<h3>92%</h3>
+<div class="big-number">
+92%
+</div>
 
 <p>
-AI detects strong crop performance
-and healthy environmental conditions.
+AI detects strong crop performance and healthy environmental conditions.
 </p>
 
 </div>
+
+<!-- PROFIT -->
 
 <div class="card">
 
 <h2>💰 Expected Profit</h2>
 
-<h3>480K</h3>
+<div class="big-number" id="profitPrediction">
+480K
+</div>
 
 <p>
 Projected seasonal profit based on AI crop intelligence and market demand.
@@ -56,11 +77,15 @@ Projected seasonal profit based on AI crop intelligence and market demand.
 
 </div>
 
+<!-- WEATHER -->
+
 <div class="card">
 
-<h2>🌦 Weather Risk</h2>
+<h2>🌦️ Weather Risk</h2>
 
-<h3>LOW</h3>
+<div class="big-number">
+LOW
+</div>
 
 <p>
 No major climate disruption expected this season.
@@ -68,113 +93,152 @@ No major climate disruption expected this season.
 
 </div>
 
+<!-- WELLBEING -->
+
 <div class="card">
 
 <h2>🧠 Farmer Wellbeing</h2>
 
-<p>
-AI wellness support active for emotional balance and mental wellbeing.
+<p id="wellbeingText">
+AI wellness support active.
 </p>
 
 <div class="progress">
-<div class="progress-fill"></div>
+<div class="progress-bar" style="width:75%"></div>
 </div>
 
 </div>
+
+<!-- AI ASSISTANT -->
 
 <div class="card">
 
 <h2>🤖 AI Farming Assistant</h2>
 
-<p>
-Coffee farming in Arusha shows strong market demand and stable weather conditions this season.
+<p id="aiAssistantText">
+Loading AI recommendation...
 </p>
 
 </div>
+
+<!-- SCANNER -->
 
 <div class="card">
 
 <h2>📷 Crop Disease Scanner</h2>
 
-<img
-src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1000&auto=format&fit=crop"
-class="crop-image">
+<img 
+src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200&auto=format&fit=crop"
+class="upload-img">
 
+<div class="input-box">
 <input type="file">
+</div>
 
-<button class="small-btn">
+<button class="btn">
 Scan Plant
 </button>
 
 </div>
+
+<!-- MARKET -->
 
 <div class="card">
 
 <h2>🌍 Market Intelligence</h2>
 
 <p>📍 Best Market: Arusha City</p>
-<p>💵 Coffee Price: 12,000 TZS/kg</p>
+
+<p>💵 Crop Market Price: 12,000 TZS/Kg</p>
+
 <p>📈 Demand Level: HIGH</p>
+
 <p>📊 Prices expected to rise next week</p>
 
 </div>
+
+<!-- PROFIT FORECAST -->
 
 <div class="card">
 
 <h2>📊 Smart Profit Forecast</h2>
 
-<input type="text" placeholder="Seeds Cost">
-<input type="text" placeholder="Fertilizer Cost">
-<input type="text" placeholder="Labour Cost">
+<div class="input-box">
+<input type="number" placeholder="Seeds Cost">
+</div>
 
-<button class="small-btn">
+<div class="input-box">
+<input type="number" placeholder="Fertilizer Cost">
+</div>
+
+<div class="input-box">
+<input type="number" placeholder="Labour Cost">
+</div>
+
+<button class="btn">
 Generate AI Forecast
 </button>
 
 </div>
 
+<!-- INSURANCE -->
+
 <div class="card">
 
-<h2>🛡 AgriNEXA Farm Shield</h2>
+<h2>🛡️ AgriNEXA Farm Shield</h2>
 
 <p>
-Protect your farm against climate damage,
-pest outbreaks and crop failure.
+Protect your farm against climate damage, pest outbreaks and crop failure.
 </p>
 
-<ul>
-<li>✅ Climate Damage</li>
-<li>✅ Pest Protection</li>
-<li>✅ Disease Coverage</li>
-<li>✅ Extreme Rainfall</li>
-</ul>
+<br>
 
-<h3>18,000 TZS</h3>
+<p>• ☑️ Climate Damage</p>
+<p>• ☑️ Pest Protection</p>
+<p>• ☑️ Disease Coverage</p>
+<p>• ☑️ Extreme Rainfall</p>
 
-<button class="small-btn">
-Activate Farm Shield
+<br>
+
+<p style="font-size:18px;font-weight:600;">
+Estimated Monthly Protection:
+</p>
+
+<div class="big-number" style="font-size:42px;">
+18,000 TZS
+</div>
+
+<button class="btn">
+Join Farm Shield
 </button>
 
 </div>
+
+<!-- EMOTIONAL AI -->
 
 <div class="card">
 
 <h2>💗 Emotional Support AI</h2>
 
+<div class="input-box">
+
 <select>
 
 <option>😊 Motivated</option>
-<option>😔 Stressed</option>
-<option>😴 Tired</option>
+<option>😓 Stressed</option>
+<option>😴 Exhausted</option>
 <option>😟 Worried</option>
+<option>🔥 Confident</option>
 
 </select>
 
-<button class="small-btn">
+</div>
+
+<button class="btn">
 Check Mental Support
 </button>
 
-<p>
+<p style="margin-top:20px;">
 AgriNEXA wellness support ready.
 </p>
 
@@ -184,7 +248,89 @@ AgriNEXA wellness support ready.
 
 </div>
 
-</div>
+<script>
+
+/* GET USER DATA */
+
+const farmerName =
+localStorage.getItem("farmerName");
+
+const region =
+localStorage.getItem("region");
+
+const crop =
+localStorage.getItem("crop");
+
+const farmSize =
+localStorage.getItem("farmSize");
+
+const budget =
+localStorage.getItem("budget");
+
+const feeling =
+localStorage.getItem("feeling");
+
+/* DISPLAY DATA */
+
+document.getElementById("welcomeText").innerHTML =
+"Good evening, " + farmerName + " 👋<br>Your AI farming intelligence system is active.";
+
+document.getElementById("farmerName").innerHTML =
+"Name: " + farmerName;
+
+document.getElementById("region").innerHTML =
+"Region: " + region;
+
+document.getElementById("crop").innerHTML =
+"Selected Crop: " + crop;
+
+document.getElementById("farmSize").innerHTML =
+"Farm Size: " + farmSize;
+
+document.getElementById("budget").innerHTML =
+"Budget: " + budget;
+
+/* AI RECOMMENDATION */
+
+document.getElementById("aiAssistantText").innerHTML =
+"AgriNEXA AI predicts strong " + crop + " farming opportunities in " + region + " due to favorable weather conditions and growing market demand.";
+
+/* WELLBEING */
+
+document.getElementById("wellbeingText").innerHTML =
+"Current farmer emotional state detected: " + feeling + ". AI wellness monitoring active.";
+
+/* DYNAMIC PROFIT */
+
+if(crop.toLowerCase().includes("coffee")){
+
+document.getElementById("profitPrediction").innerHTML =
+"480K";
+
+}
+
+else if(crop.toLowerCase().includes("maize")){
+
+document.getElementById("profitPrediction").innerHTML =
+"320K";
+
+}
+
+else if(crop.toLowerCase().includes("rice")){
+
+document.getElementById("profitPrediction").innerHTML =
+"410K";
+
+}
+
+else{
+
+document.getElementById("profitPrediction").innerHTML =
+"390K";
+
+}
+
+</script>
 
 </body>
 </html>

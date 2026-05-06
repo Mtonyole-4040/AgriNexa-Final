@@ -1,36 +1,159 @@
+<!-- onboarding.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>AgriNEXA AI Assistant</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
-<body class="assistant-body">
+<body>
 
-<div class="overlay"></div>
+<div class="main-container">
 
-<div class="assistant-box">
+<div class="glass-card">
 
-<h1>AgriNEXA AI Assistant</h1>
+<h1 class="title">
+AgriNEXA AI Assistant
+</h1>
 
-<div class="question-box" id="question">
-Loading...
+<div class="question-box" id="questionBox">
+
+👋 Hello farmer, I am AgriNEXA AI — your intelligent farming assistant built to help you increase profit, reduce farming risks, improve wellbeing and grow smarter this season.
+
 </div>
 
-<input
-type="text"
-id="answer"
-placeholder="Type your answer">
+<div class="progress">
+<div class="progress-bar" id="progressBar"></div>
+</div>
 
-<button onclick="nextQuestion()">
+<div class="input-box">
+<input type="text" id="answer" placeholder="Type your answer">
+</div>
+
+<button class="btn" onclick="nextQuestion()">
 Continue
 </button>
 
+<p class="small-text" id="stepText">
+Introduction
+</p>
+
 </div>
 
-<script src="script.js"></script>
+</div>
+
+<script>
+
+const questions = [
+
+"👤 First, what is your full name?",
+
+"🌍 Which region are you farming from?",
+
+"🌱 What crop are you planning to grow this season?",
+
+"📏 Approximately how large is your farm? (example: 3 acres)",
+
+"💰 What is your estimated farming budget this season?",
+
+"☁️ How do you feel about this farming season so far?",
+
+"🌧️ Have you ever experienced major losses due to weather, pests or crop disease?",
+
+"🛡️ Would you be interested in affordable AI-powered farm protection insurance for your crops?",
+
+"📈 What is your main goal this season? More profit, export market, food security or higher yield?",
+
+"🧠 Are you currently experiencing stress or pressure related to farming?",
+
+"🚜 What farming challenge worries you most right now?"
+
+];
+
+let current = -1;
+
+function nextQuestion(){
+
+const input =
+document.getElementById("answer").value;
+
+if(current >= 0 && input.trim() === ""){
+
+alert("Please answer the question first");
+
+return;
+
+}
+
+/* SAVE USER DATA */
+
+if(current === 0){
+
+localStorage.setItem("farmerName", input);
+
+}
+
+if(current === 1){
+
+localStorage.setItem("region", input);
+
+}
+
+if(current === 2){
+
+localStorage.setItem("crop", input);
+
+}
+
+if(current === 3){
+
+localStorage.setItem("farmSize", input);
+
+}
+
+if(current === 4){
+
+localStorage.setItem("budget", input);
+
+}
+
+if(current === 5){
+
+localStorage.setItem("feeling", input);
+
+}
+
+current++;
+
+if(current < questions.length){
+
+document.getElementById("questionBox").innerHTML =
+questions[current];
+
+document.getElementById("answer").value = "";
+
+document.getElementById("stepText").innerHTML =
+"Question " + (current + 1) + " of " + questions.length;
+
+document.getElementById("progressBar").style.width =
+((current + 1) / questions.length) * 100 + "%";
+
+}else{
+
+window.location.href = "loading.html";
+
+}
+
+}
+
+</script>
 
 </body>
 </html>
